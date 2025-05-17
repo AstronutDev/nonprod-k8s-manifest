@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: git@github.com:Supanut1911/nonprod-k8s-manifest.git
+    repoURL: git@github.com:AstronutDev/nonprod-k8s-manifest.git
     targetRevision: HEAD
     path: dev/pedjeab/cart
   destination:
