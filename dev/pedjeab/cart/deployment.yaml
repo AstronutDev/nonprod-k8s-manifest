@@ -15,7 +15,7 @@ spec:
       containers:
       - image: cart:latest
         imagePullPolicy: Never
-        name: nginx
+        name: cart
         ports:
         - containerPort: 3000
     syncPolicy:
