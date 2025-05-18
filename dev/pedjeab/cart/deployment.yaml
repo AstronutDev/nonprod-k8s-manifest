@@ -13,8 +13,8 @@ spec:
         app: cart
     spec:
       containers:
-      - image: cart:latest
-        imagePullPolicy: Never
+      - image: devsupanut/cart-app
+        imagePullPolicy: always
         name: cart
         ports:
         - containerPort: 3000
