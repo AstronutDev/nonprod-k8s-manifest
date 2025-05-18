@@ -1,0 +1,50 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: done-alert
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/sync-wave: '5'
+spec:
+  template:
+    spec:
+      containers:
+        - name: slack-notification
+          image: curlimages/curl
+          command: [ "sh", "-c" ]
+          env:
+            - name: SLACK_WEBHOOK
+              valueFrom:
+                secretKeyRef:
+                  name: slack-secret
+                  key: webhook-url
+          args:
+            - >
+              curl -X POST -H 'Content-type: application/json' --data '{"text":"sync done!"}' $SLACK_WEBHOOK
+
+          
+      restartPolicy: Never
+  backoffLimit: 2
+
+
+
+  # - curl
+            # - '-X'
+            # - POST
+            # - '--data-urlencode'
+            # - >-
+            #   payload={"channel": "argo-sync-alert", "username": "hello", "text":
+            #   "App Sync succeeded", "icon_emoji": ":ghost:"}
+            # - 'https://hooks.slack.com/services/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'
+
+
+# command: 
+#             - curl
+#             - -X
+#             - POST
+#             - -H
+#             - 'Content-type: application/json'
+#             - --data
+#             - '{"text":"sync done!"}'
+#             - https://hooks.slack.com/services/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
