@@ -12,15 +12,12 @@ spec:
       containers:
         - name: slack-notification
           image: curlimages/curl
-          command: 
-            - curl
-            - -X
-            - POST
-            - -H
-            - 'Content-type: application/json'
-            - --data
-            - '{"text":"sync done!"}'
-            - https://hooks.slack.com/services/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
+          command: [ "sh", "-c" ]
+          args:
+            - >
+              curl -X POST -H 'Content-type: application/json' --data '{"text":"sync done!"}' https://hooks.slack.com/services/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
+
+          
       restartPolicy: Never
   backoffLimit: 2
 
@@ -34,3 +31,14 @@ spec:
             #   payload={"channel": "argo-sync-alert", "username": "hello", "text":
             #   "App Sync succeeded", "icon_emoji": ":ghost:"}
             # - 'https://hooks.slack.com/services/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'
+
+
+# command: 
+#             - curl
+#             - -X
+#             - POST
+#             - -H
+#             - 'Content-type: application/json'
+#             - --data
+#             - '{"text":"sync done!"}'
+#             - https://hooks.slack.com/services/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
