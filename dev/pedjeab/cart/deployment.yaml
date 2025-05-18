@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - image: devsupanut/cart-app
-        imagePullPolicy: always
+        imagePullPolicy: Always
         name: cart
         ports:
         - containerPort: 3000
