@@ -18,7 +18,7 @@ spec:
             - POST
             - '--data-urlencode'
             - >-
-              payload={"channel": "#somechannel", "username": "hello", "text":
+              payload={"channel": "argo-sync-alert", "username": "hello", "text":
               "App Sync succeeded", "icon_emoji": ":ghost:"}
             - 'https://hooks.slack.com/services/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'
       restartPolicy: Never
