@@ -15,7 +15,7 @@ spec:
           command: [ "sh", "-c" ]
           args:
             - >
-              curl -X POST -H 'Content-type: application/json' --data '{"text":"sync done!"}' https://hooks.slack.com/services/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
+              curl -X POST -H 'Content-type: application/json' --data '{"text":"sync done!"}' https://hooks.slack.com/services/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
 
           
       restartPolicy: Never
