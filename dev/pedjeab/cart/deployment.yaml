@@ -18,7 +18,3 @@ spec:
         name: cart
         ports:
         - containerPort: 3000
-    syncPolicy:
-      automate:
-        prune: true
-        selfHeal: true
